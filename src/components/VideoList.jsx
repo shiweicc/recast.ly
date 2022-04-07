@@ -1,5 +1,18 @@
 import exampleVideoData from '../data/exampleVideoData.js';
+// what's the relationship between videolistentry and view goes here
+// what's props in this case, do we use props, and does that referring to examplevideodata
+//
 
+// ORIGINAL
+<div className="video-list">
+  <div><h5><em>videoListEntry</em> view goes here</h5></div>
+  <div><h5><em>videoListEntry</em> view goes here</h5></div>
+  <div><h5><em>videoListEntry</em> view goes here</h5></div>
+  <div><h5><em>videoListEntry</em> view goes here</h5></div>
+  <div><h5><em>videoListEntry</em> view goes here</h5></div>
+</div>;
+
+// ATTEMPT 1
 // class VideoList extends React.Component {
 //   constructor(props) {
 //     super(props);
@@ -12,25 +25,30 @@ import exampleVideoData from '../data/exampleVideoData.js';
 //   }
 
 //   render () {
-//     exampleVideoData.map(renderVideo, )
+//     exampleVideoData.map(renderVideo)
+//     return (
+//       <div></div>
+//     )
 //   }
 // }
 
-var VideoList = (props) => (
-  <div className="video-list">
-    {exampleVideoData.map((videoEntry) => {
-      <VideoListEntry />;
-    })}
-  </div>
+// ATTEMPT 2
+var VideoList = (props) => {
+  console.log(props);
+  // var renderVideo = function (entry) {
+  //   return (
+  //     <videoListEntry title={entry.title} description={entry.description}/>
+  //   );
+  // };
 
-  // <div className="video-list">
-  //   <div><h5><em>videoListEntry</em> view goes here</h5></div>
-  //   <div><h5><em>videoListEntry</em> view goes here</h5></div>
-  //   <div><h5><em>videoListEntry</em> view goes here</h5></div>
-  //   <div><h5><em>videoListEntry</em> view goes here</h5></div>
-  //   <div><h5><em>videoListEntry</em> view goes here</h5></div>
-  // </div>
-);
+  exampleVideoData.map(renderVideo);
+  return (
+    <div></div>
+  );
+};
+
+
+// ----------
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
