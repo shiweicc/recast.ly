@@ -6,7 +6,6 @@ import VideoListEntry from './VideoListEntry.js';
 //
 
 var VideoList = (props) => {
-  console.log(props);
   const videos = props.videos.map(function(element, index) {
     return (
       <VideoListEntry key={element.etag} video={element} handleListItemClick={props.handleListItemClick}/>
@@ -17,7 +16,6 @@ var VideoList = (props) => {
     <div className="video-list">{videos}</div>
   );
 };
-
 
 // ----------
 // PropTypes tell other developers what `props` a component expects
