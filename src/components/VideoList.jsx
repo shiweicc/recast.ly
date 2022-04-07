@@ -6,10 +6,10 @@ import VideoListEntry from './VideoListEntry.js';
 //
 
 var VideoList = (props) => {
-
+  console.log(props);
   const videos = props.videos.map(function(element, index) {
     return (
-      <VideoListEntry key={element.etag} video={element} />
+      <VideoListEntry key={element.etag} video={element} handleListItemClick={props.handleListItemClick}/>
     );
   });
 

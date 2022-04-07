@@ -11,13 +11,14 @@ class App extends React.Component {
       videoList: exampleVideoData,
       currentVideo: exampleVideoData[0]
       // Pass this state down as props to its children components
-
     };
+
+    this.handleListItemClick = this.handleListItemClick.bind(this);
   }
 
-  onListItemClick() {
+  handleListItemClick(video) {
     this.setState({
-      currentVideo: exampleVideoData[1]
+      currentVideo: video
     });
   }
 
@@ -34,7 +35,7 @@ class App extends React.Component {
             <VideoPlayer video={this.state.currentVideo}/>
           </div>
           <div className="col-md-5">
-            <VideoList videos={this.state.videoList}/>
+            <VideoList videos={this.state.videoList} handleListItemClick={this.handleListItemClick}/>
           </div>
         </div>
       </div>
