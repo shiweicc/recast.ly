@@ -5,7 +5,6 @@ import VideoPlayer from './VideoPlayer.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       // initialize the state of App to keep track of the videos in the video list and the current video in the player
       videoList: exampleVideoData,
@@ -13,7 +12,10 @@ class App extends React.Component {
       // Pass this state down as props to its children components
     };
 
+    console.log('here:', props);
+
     this.handleListItemClick = this.handleListItemClick.bind(this);
+    this.handleSearchQuery = this.handleSearchQuery.bind(this);
   }
 
   handleListItemClick(video) {
@@ -22,7 +24,14 @@ class App extends React.Component {
     });
   }
 
+  handleSearchQuery(videos) {
+    this.setState({
+      videoList: videos
+    });
+  }
+
   render () {
+    console.log('here: ');
     return (
       <div>
         <nav className="navbar">
