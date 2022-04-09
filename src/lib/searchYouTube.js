@@ -4,6 +4,12 @@ $.ajaxPrefilter(function (settings, _, jqXHR) {
   jqXHR.setRequestHeader('Authorization', API_KEY);
 });
 
+// var searchCallback = (videos) => {
+//   // handle success of Ajax call
+//   console.log('videos here: ', videos);
+// };
+
+
 var searchYouTube = (query, callback) => {
   // TODO
   $.ajax({
@@ -12,8 +18,9 @@ var searchYouTube = (query, callback) => {
     data: { q: query, 'youtube_api_key': YOUTUBE_API_KEY},
     contentType: 'application/json',
     success: (videos) => callback(videos),
-    error: (error) => console.log(error)
+    error: (error) => console.log('testing', error)
   });
 };
+// searchYouTube('cat', searchCallback);
 
 export default searchYouTube;

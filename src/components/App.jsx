@@ -1,6 +1,7 @@
 import VideoList from './VideoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import VideoPlayer from './VideoPlayer.js';
+import Search from './Search.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,39 +13,36 @@ class App extends React.Component {
       // Pass this state down as props to its children components
     };
 
-    console.log('here:', props);
-
     this.handleListItemClick = this.handleListItemClick.bind(this);
-    this.handleSearchQuery = this.handleSearchQuery.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
-  handleListItemClick(video) {
+  handleListItemClick(videos) {
+    // console.log('videos testing:', videos);
     this.setState({
-      currentVideo: video
+      videoList: videos,
+      currentVideo: videos[0]
     });
   }
 
-  handleSearchQuery(videos) {
-    this.setState({
-      videoList: videos
-    });
+  componentDidMount(query) {
+    this.props.searchYouTube(query || 'cats', this.handleListItemClick);
   }
 
   render () {
-    console.log('here: ');
     return (
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> view goes here</h5></div>
+            <Search componentDidMount={this.componentDidMount}/>
           </div>
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <VideoPlayer video={this.state.currentVideo}/>
+            {this.state.currentVideo ? <VideoPlayer video={this.state.currentVideo}/> : <div>Loading...</div>}
           </div>
           <div className="col-md-5">
-            <VideoList videos={this.state.videoList} handleListItemClick={this.handleListItemClick}/>
+            {this.state.videoList ? <VideoList videos={this.state.videoList} handleListItemClick={this.handleListItemClick}/> : <div>Loading...</div>}
           </div>
         </div>
       </div>
