@@ -68,7 +68,6 @@ class App extends React.Component {
 // `var` declarations will only exist globally where explicitly defined
 export default App;
 
-
 /*
 React state is built in suach a way that it wants to identify only the properties that have changed,
 so that it can only rerender the components that must be rerendered. The component are presenting altered data.

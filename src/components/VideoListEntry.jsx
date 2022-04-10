@@ -1,7 +1,6 @@
 // import VideoList from './VideoList';
 import App from './App.js';
 
-
 var VideoListEntry = (props) => {
   return (
     <div className="video-list-entry media">
