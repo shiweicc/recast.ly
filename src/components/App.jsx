@@ -46,7 +46,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search handleInputChange={this.getYouTubeVideos.bind(this)}/>
+            <Search getYouTubeVideos={this.getYouTubeVideos.bind(this)}/>
           </div>
         </nav>
         <div className="row">

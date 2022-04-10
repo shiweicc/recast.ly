@@ -1,7 +1,7 @@
 var Search = (props) => {
 
   const debouncedFn = _.debounce((query) => {
-    props.handleInputChange(query);
+    props.getYouTubeVideos(query);
   }, 500);
 
   var onChange = (event) => {
