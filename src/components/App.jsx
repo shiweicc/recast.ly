@@ -8,8 +8,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoList: exampleVideoData,
-      currentVideo: exampleVideoData[0]
+      videoList: [],
+      currentVideo: {
+        id: { videoId: '' },
+        snippet: {
+          title: '',
+          description: ''
+        }
+      }
     };
 
     // this.handleListItemClick = this.handleListItemClick.bind(this);
